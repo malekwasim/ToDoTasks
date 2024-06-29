@@ -16,6 +16,7 @@ struct ToDoListAppApp: App {
 
     var body: some Scene {
         WindowGroup {
+            //If user is authenticate show Task List else show Login 
             if authViewModel.isAuthenticated {
                 TaskListView()
                     .environment(\.managedObjectContext, persistenceController.container.viewContext)

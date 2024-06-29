@@ -15,7 +15,12 @@ class AuthViewModel: ObservableObject {
     init() {
         self.isAuthenticated = Auth.auth().currentUser != nil
     }
-
+    
+    /// Authenticate user and login to app
+    /// - Parameters:
+    ///   - email: Valid Email Addreess
+    ///   - password: password for user
+    ///   - completion: Completion callback
     func login(email: String,
                password: String,
                completion: @escaping (Error?) -> Void) {
@@ -29,7 +34,12 @@ class AuthViewModel: ObservableObject {
             }
         }
     }
-
+    
+    /// Create New user on firebase
+    /// - Parameters:
+    ///   - email: Valid Email
+    ///   - password: Valid Password
+    ///   - completion: Callback
     func register(email: String,
                   password: String,
                   completion: @escaping (Error?) -> Void) {
@@ -43,7 +53,8 @@ class AuthViewModel: ObservableObject {
             }
         }
     }
-
+    
+    /// Logout user from app
     func logout() {
         do {
             try Auth.auth().signOut()

@@ -14,7 +14,11 @@ class TaskViewModel: ObservableObject {
     init(context: NSManagedObjectContext) {
         self.viewContext = context
     }
-
+    /// Add New Task and save to CoreData
+    /// - Parameters:
+    ///   - title: Title of task
+    ///   - description: Task Description
+    ///   - status: Task Status
     func addItem(title: String, description: String, status: Status) {
         let newItem = Task(context: viewContext)
         newItem.title = title
@@ -23,6 +27,13 @@ class TaskViewModel: ObservableObject {
         newItem.date = Date()
         saveContext()
     }
+
+    /// Save Task to Database
+    /// - Parameters:
+    ///   - task: If task is avalailable the edit else save new one
+    ///   - title: Title of task
+    ///   - desc: Task Description
+    ///   - status: Task Status
     func saveTask(_ task: Task?,
                   title: String,
                   desc: String,
@@ -39,7 +50,8 @@ class TaskViewModel: ObservableObject {
         }
         saveContext()
     }
-
+    
+    /// Save to Database
     func saveContext() {
         do {
             try viewContext.save()

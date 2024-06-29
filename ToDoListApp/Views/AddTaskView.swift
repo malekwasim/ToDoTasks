@@ -40,7 +40,9 @@ struct AddTaskView: View {
                 .background(Color.green)
                 .clipShape(Capsule())
                 .alert(isPresented: $showError) {
-                    Alert(title: Text("Required"), message: Text("Please enter title."), dismissButton: .default(Text("OK")))
+                    Alert(title: Text("Required"),
+                          message: Text("Please enter title."),
+                          dismissButton: .default(Text("OK")))
                 }
             }
             .navigationTitle(item == nil ? "Add Task" : "Edit Task")

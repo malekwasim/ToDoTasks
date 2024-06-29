@@ -92,11 +92,11 @@ struct TaskListView: View {
                 case .all:
                     return true
                 case .toDo:
-                    return item.status == TaskStatusFilter.toDo.rawValue
+                    return item.status == TaskStatusFilter.toDo.name
                 case .inProgress:
-                    return item.status == TaskStatusFilter.inProgress.rawValue
+                    return item.status == TaskStatusFilter.inProgress.name
                 case .done:
-                    return item.status == TaskStatusFilter.done.rawValue
+                    return item.status == TaskStatusFilter.done.name
                 }
             }()
 
